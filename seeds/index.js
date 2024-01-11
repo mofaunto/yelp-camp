@@ -21,10 +21,10 @@ const seedDB = async () => {
       author: "659e9b04674d3376fbd1a246",
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
       title: `${sample(descriptors)} ${sample(places)}`,
-      image: "https://source.unsplash.com/random/?in-the-woods",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit Alias maiores tempora rem ullam obcaecati odit voluptatibus molestiae earum Mollitia, soluta dolore totam sed at autem sint assumenda possimus ipsam veniam",
       price,
+      images: [{}],
     });
 
     await camp.save();

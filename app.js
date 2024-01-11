@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+//Dependencies
 const express = require("express");
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -54,26 +59,6 @@ passport.use(new localPassport(User.authenticate()));
 //Storing and removing user from a session
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-const validateCampground = (req, res, next) => {
-  const { error } = campgroundSchema.validate(req.body);
-  if (error) {
-    const msg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(msg, 400);
-  } else {
-    next();
-  }
-};
-
-const validateReview = (req, res, next) => {
-  const { error } = reviewSchema.validate(req.body);
-  if (error) {
-    const msg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(msg, 400);
-  } else {
-    next();
-  }
-};
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
