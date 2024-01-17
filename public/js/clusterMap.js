@@ -1,10 +1,12 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/light-v11",
+  container: "cluster-map",
+  style: "mapbox://styles/mapbox/outdoors-v11",
   center: [-103.59179687498357, 40.66995747013945],
   zoom: 3,
 });
+
+map.addControl(new mapboxgl.NavigationControl());
 
 map.on("load", function () {
   // Add a new source from our GeoJSON data and
@@ -34,11 +36,11 @@ map.on("load", function () {
       "circle-color": [
         "step",
         ["get", "point_count"],
-        "#00BCD4",
+        "#14FFF7",
         10,
-        "#2196F3",
+        "#0BC9CD",
         30,
-        "#3F51B5",
+        "#1D8A99",
       ],
       "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 25],
     },

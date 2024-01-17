@@ -1,25 +1,47 @@
 <% layout('layouts/boilerplate') %>
-<h1>Login</h1>
-<form action="/login" method="POST" class="validated-form" novalidate>
-  <div class="mb-4">
-    <label for="username" class="form-label">Username</label>
-    <input
-      class="form-control"
-      type="text"
-      id="username"
-      name="username"
-      required
-    />
+
+<div class="container d-flex justify-content-center align-items-center mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-4 col-xl-4 offset-xl-4">
+      <div class="card shadow">
+        <img
+          src="https://images.unsplash.com/photo-1528892677828-8862216f3665?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Camp"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Login to your account</h5>
+          <form action="/login" method="POST" class="validated-form" novalidate>
+            <div class="mb-2">
+              <label for="username" class="form-label">Username</label>
+              <input
+                class="form-control"
+                type="text"
+                id="username"
+                name="username"
+                required
+                autofocus
+              />
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="d-grid gap-2 col-12 mx-auto my-2">
+              <button class="btn btn-success">Login</button>
+              <a class="mx-auto mt-2" href="/register"
+                >No account? Sign up now!</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="mb-4">
-    <label for="password" class="form-label">Password</label>
-    <input
-      class="form-control"
-      type="password"
-      id="password"
-      name="password"
-      required
-    />
-  </div>
-  <button class="btn btn-success">Login</button>
-</form>
+</div>
